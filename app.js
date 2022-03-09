@@ -135,3 +135,9 @@
 // for (let n = 0; n < 5; n++) {
 //   console.log(space.repeat(5 - n - 1) + star.repeat(2 * n + 1))
 // }
+
+// for (let i = 4, j = 1; i < 5, j <= 9; i = i - 1, j = j + 2) {
+//   let space = " "
+//   let star = "*"
+//   console.log(space.repeat(i) + star.repeat(j))
+// }
