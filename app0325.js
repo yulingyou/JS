@@ -186,8 +186,8 @@
 //IIFE
 //Intermedia...Invoke Function Expression
 
-;(function () {
-  console.log("Happy")
-})()
+// ;(function () {
+//   console.log("Happy")
+// })()
 
-console.log(123)
+// console.log(123)

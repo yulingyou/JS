@@ -79,13 +79,17 @@
 // let result = moveZerosToEnd(list)
 // console.log(result)  // [false,1,1,2,1,3,"a",0,0]
 
-const dictionary = ["a", "b", "x", "d", "e"]
+// const dictionary = ["a", "b", "x", "d", "e"]
 
-//先找到x的位置，等會要用c來取代x
-const xIndex = dictionary.indexOf("x")
+// //先找到x的位置，等會要用c來取代x
+// const xIndex = dictionary.indexOf("x")
 
-//bIndex大於-1代表有存在，插入c，刪除x
-if (xIndex > -1) {
-  dictionary.splice(xIndex, 1, "c")
-}
-console.log(xIndex)
+// //bIndex大於-1代表有存在，插入c，刪除x
+// if (xIndex > -1) {
+//   dictionary.splice(xIndex, 1, "c")
+// }
+// console.log(xIndex)
+
+let classA = [100, 70, 59]
+classA.push(40)
+console.log("classA", classA)
