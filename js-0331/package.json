@@ -1,0 +1,16 @@
+{
+  "name": "js-0331",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "world": "parcel index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.4.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
+}
