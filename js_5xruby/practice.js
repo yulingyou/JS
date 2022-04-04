@@ -90,6 +90,83 @@
 // }
 // console.log(xIndex)
 
-let classA = [100, 70, 59]
-classA.push(40)
-console.log("classA", classA)
+// let classA = [100, 70, 59]
+// classA.push(40)
+// console.log("classA", classA)
+
+// for (let i = 0; i <= 5; i++) {
+//   if (i >= 4) {
+//     break
+//   }
+//   console.log(i)
+// }
+
+// let total = 0
+// let input = prompt("請輸入加總值，否則按q離開")
+
+// while (input !== "q") {
+//   total = parseInt(input) + total
+//   input = prompt("請再輸入加總值，否則按q離開")
+// }
+// console.log(`total: ${total}`)
+
+// let i = 1
+
+// do {
+//   console.log(i)
+//   i++
+// } while (i < 8)
+
+// while (i < 11) {
+//   console.log(i)
+//   i++
+// }
+
+// while (i < 9) {
+//   console.log(i)
+//   i++
+// }
+
+// let k = 1
+
+// while (k < 5) {
+//   console.log(k)
+//   k++
+// }
+
+// const fruits = ["apple", "orange", "banana"]
+// console.log(fruits)
+
+// fruits[0] = "watermelon"
+// console.log(fruits)
+
+// let drinks = ["coke", "apple juice", "water"]
+
+// console.log(drinks)
+
+// drinks[1] = "pineapple juice"
+// console.log(drinks)
+
+// fruits.push("straberry", "mango")
+// console.log(fruits)
+
+// fruits.unshift("cherry")
+// console.log(fruits)
+
+// fruits.pop()
+// console.log(fruits)
+
+// fruits.shift()
+// console.log(fruits)
+
+// const weeks = new Array("monday", "tuesday")
+
+// console.log(weeks)
+
+// function sayHello(username = "Visitor") {
+//   console.log(`Hi, this is ${username} , nice to meet you!`)
+// }
+
+// sayHello("Mary")
+// sayHello("Bob")
+// sayHello()
