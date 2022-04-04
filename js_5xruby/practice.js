@@ -134,11 +134,11 @@
 //   k++
 // }
 
-// const fruits = ["apple", "orange", "banana"]
-// console.log(fruits)
+const fruits = ["apple", "orange", "banana"]
+console.log(fruits)
 
-// fruits[0] = "watermelon"
-// console.log(fruits)
+fruits[0] = "watermelon"
+console.log(fruits)
 
 // let drinks = ["coke", "apple juice", "water"]
 
@@ -170,3 +170,13 @@
 // sayHello("Mary")
 // sayHello("Bob")
 // sayHello()
+
+const x = 3
+{
+    const x = 2;
+    {
+         console.log(x); // 2
+    }
+    console.log(x); // 2
+ }
+ console.log(x);
