@@ -577,13 +577,7 @@ checkForm.addEventListener("submit", function(e) {
 });
 document.querySelector("#logoutForm").addEventListener("submit", (e)=>{
     e.preventDefault();
-    const token2 = localStorage.getItem("todo-token");
-    const checkData1 = {
-        headers: {
-            Authorization: token2
-        }
-    };
-    _axiosDefault.default.delete('https://todoo.5xcamp.us/users/sign_out', checkData1).then((resp)=>{
+    _axiosDefault.default.delete('https://todoo.5xcamp.us/users/sign_out', checkData).then((resp)=>{
         localStorage.setItem("todo-token", "");
         console.log("登出成功");
     }).catch((err)=>{
@@ -599,25 +593,47 @@ document.querySelector("#todoForm").addEventListener("submit", (e)=>{
             "content": todoList.value
         }
     };
-    // todo.value = ""
-    // todo.focus()
+    // todoList.value = ""
+    // todoList.focus()
     _axiosDefault.default.post('https://todoo.5xcamp.us/todos', todoData, checkData).then(function(resp) {
         console.log("新增成功");
         const ul = document.querySelector("#todos");
-        const li = `<li>${resp.data.content}</li>`;
+        const li = `<li data-id="${resp.data.id}"><button>X</button>${resp.data.content}</li>`;
+        console.log(li);
         ul.insertAdjacentHTML("afterbegin", li);
         // console.log(resp.data.content)
         e.target.reset();
-    }).catch(function(err) {
-        console.log(err);
     });
+// .catch(function(err){
+//     console.log(err)
+// })
 });
 if (token) _axiosDefault.default.get('https://todoo.5xcamp.us/todos', checkData).then(function({ data  }) {
     const ul = document.querySelector("#todos");
-    data.todos.forEach(function(todo) {});
-    const li = `<li>${data.todos}</li>`;
-    ul.insertAdjacentHTML("afterbegin", li);
-// console.log(data)
+    data.todos.forEach(function(todo) {
+        const li = `
+        <li data-id="${todo.id}"><button>X</button>
+        ${todo.content}
+        </li>`;
+        ul.insertAdjacentHTML("beforeend", li);
+    // console.log(data)
+    });
+    ul.addEventListener("click", (e)=>{
+        e.preventDefault();
+        if (e.target.matches("button")) {
+            const li = e.target.parentElement;
+            const id = li.dataset.id;
+            li.remove();
+            console.log(id);
+            // e.target.parentElement.remove()
+            _axiosDefault.default.delete(`https://todoo.5xcamp.us/todos/${id}`, checkData).then(function(resp) {
+                const msg = resp.data.message;
+                console.log(msg);
+            }).catch((err)=>{
+                console.log(err);
+            });
+        }
+    });
 });
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {

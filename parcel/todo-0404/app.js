@@ -8,8 +8,6 @@ const checkData = {
         Authorization: token,
     }
 }
-
-
 form.addEventListener("submit", function(e){
     e.preventDefault()
     const email = document.querySelector("#email")
@@ -32,7 +30,6 @@ form.addEventListener("submit", function(e){
             })
     }
 })
-
 loginForm.addEventListener("submit", function(e){
     e.preventDefault()
     const email = document.querySelector("#login_email")
@@ -57,7 +54,6 @@ loginForm.addEventListener("submit", function(e){
             })
     }
 })
-
 checkForm.addEventListener("submit",function(e){
 e.preventDefault()
 // const token = document.querySelector("#token").value
@@ -72,16 +68,9 @@ if(token){
    }
 
 })
-
 document.querySelector("#logoutForm").addEventListener("submit", (e) => {
     e.preventDefault()
     
-    const token = localStorage.getItem("todo-token")
-    const checkData = {
-        headers : {
-            Authorization: token,
-        }
-    }
     AX.delete('https://todoo.5xcamp.us/users/sign_out', checkData)
     .then((resp) =>{
         localStorage.setItem("todo-token", "")
@@ -91,7 +80,6 @@ document.querySelector("#logoutForm").addEventListener("submit", (e) => {
         console.log(err)
     })
 })
-
 document.querySelector("#todoForm").addEventListener("submit", (e) => {
     e.preventDefault()
     const todoList = document.querySelector("#todo_list")
@@ -103,35 +91,60 @@ document.querySelector("#todoForm").addEventListener("submit", (e) => {
           }
     }
 
-    // todo.value = ""
-    // todo.focus()
+    // todoList.value = ""
+    // todoList.focus()
 
     AX
     .post('https://todoo.5xcamp.us/todos', todoData,checkData)
     .then(function(resp){
         console.log("新增成功")
         const ul = document.querySelector("#todos")
-        const li = `<li>${resp.data.content}</li>`
+        const li = `<li data-id="${resp.data.id}"><button>X</button>${resp.data.content}</li>`
+        console.log(li)
 
         ul.insertAdjacentHTML("afterbegin",li)
         // console.log(resp.data.content)
         e.target.reset()
      
-    }).catch(function(err){
-        console.log(err)
     })
+    // .catch(function(err){
+    //     console.log(err)
+    // })
 })
-
 if(token){
     AX
     .get('https://todoo.5xcamp.us/todos' ,checkData)
     .then(function({data}){
         const ul = document.querySelector("#todos")
 
-        data.todos.forEach(function(todo){})
-        const li = `<li>${data.todos}</li>`
-        ul.insertAdjacentHTML("afterbegin",li)
+        data.todos.forEach(function(todo){
+        const li = `
+        <li data-id="${todo.id}"><button>X</button>
+        ${todo.content}
+        </li>`
+        ul.insertAdjacentHTML("beforeend",li)
         // console.log(data)
-    
+           })
+
+           ul.addEventListener("click",(e)=>{
+               e.preventDefault()
+               if(e.target.matches("button")){
+                   const li = e.target.parentElement 
+                   const id = li.dataset.id
+                   li.remove(
+                   )
+                   console.log(id)
+                // e.target.parentElement.remove()
+                AX.delete(`https://todoo.5xcamp.us/todos/${id}`, checkData) 
+                .then(function(resp){
+                    const msg= resp.data.message
+                    console.log(msg)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+               }
+               
+           })
     })
 }
