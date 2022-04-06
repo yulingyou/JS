@@ -171,12 +171,31 @@ console.log(fruits)
 // sayHello("Bob")
 // sayHello()
 
-const x = 3
-{
-    const x = 2;
-    {
-         console.log(x); // 2
-    }
-    console.log(x); // 2
- }
- console.log(x);
+// const x = 3
+// {
+//     const x = 2;
+//     {
+//          console.log(x); // 2
+//     }
+//     console.log(x); // 2
+//  }
+//  console.log(x);
+
+// let age 
+// age = 30
+
+// console.log(age)
+
+// const myage = 18
+
+// console.log(myage)
+
+function roundedNumber(num, m = 2) {
+    return Number(num.toFixed(m))
+}
+
+console.log(roundedNumber(123.456, 2)); // 123.46
+console.log(roundedNumber(123.456, 1)); // 123.5
+// console.log(roundedNumber(123.456)); 
+
+// console.log(123.456.toFixed(1))

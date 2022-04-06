@@ -1,0 +1,14 @@
+{
+  "name": "0404",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "world": "parcel src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.4.1",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23"
+  }
+}
